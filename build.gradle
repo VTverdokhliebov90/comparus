@@ -5,6 +5,10 @@ plugins {
 	id 'org.flywaydb.flyway' version '10.17.0'
 }
 
+ext {
+	set('testcontainers.version', "1.20.1")
+}
+
 group = 'com.comparus'
 version = '0.0.1-SNAPSHOT'
 
@@ -33,17 +37,23 @@ dependencies {
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-validation'
+
 	implementation 'org.springdoc:springdoc-openapi-starter-webmvc-ui:2.0.3'
 
-	implementation 'org.flywaydb:flyway-core:10.17.0'
+//	implementation 'com.h2database:h2:2.3.230'
+	implementation 'org.postgresql:postgresql:42.7.3'
+	implementation 'com.mysql:mysql-connector-j:9.0.0'
 
-	implementation 'com.h2database:h2:2.3.230'
-
-
+//	implementation 'org.flywaydb:flyway-core:10.17.0'
+	
 	compileOnly 'org.projectlombok:lombok'
 
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
 	testImplementation 'org.junit.vintage:junit-vintage-engine:5.10.3'
+	testImplementation 'org.testcontainers:junit-jupiter'
+	testImplementation 'org.testcontainers:postgresql'
+	testImplementation 'org.testcontainers:mysql'
+
 
 	testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
 }

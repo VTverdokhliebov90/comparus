@@ -11,6 +11,7 @@ of data sources is infinite:
 ### Spring Boot
 
 ### OpenApi
+
 	http://localhost:8080/swagger-ui/index.html
 	http://localhost:8080/v3/api-docs
 
@@ -49,9 +50,15 @@ data-sources:
 ```
 
 # IT tests
-Application contains IT test for /users endpoint with multiple in memory H2 data sources.
-Test checks that user are loaded from multiple dataSources. One more case ads checks for users search filter around
+
+Tests are build based on tescontainers and
+require Docker installation on your system
+
+Application contains IT test for /users endpoint that provides users data from multiple data sources.
+Test checks that user are loaded from multiple data sources. 
+One more case ads checks for users search filter around
 multiple DS.
 
 # TODO
+
 Application can support different strategies for DS setup
