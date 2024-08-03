@@ -1,0 +1,25 @@
+application:
+  apiPrefix: ''
+  dataSources:
+    - name: data-base-1
+      url: jdbc:h2:mem:test
+      driverClassName: org.h2.Driver
+      user: testuser
+      password: testpass
+      table: users
+      mapping:
+        id: user_id
+        username: login
+        name: first_name
+        surname: last_name
+    - name: data-base-2
+      url: jdbc:h2:mem:test1
+      driverClassName: org.h2.Driver
+      user: testuser
+      password: testpass
+      table: user_table
+      mapping:
+        id: ldap_login
+        username: ldap_login
+        name: name
+        surname: surname
