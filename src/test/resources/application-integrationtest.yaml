@@ -2,6 +2,7 @@ application:
   apiPrefix: ''
   data-sources:
     - name: data-base-1
+      strategy: postgres
       driver-class-name: org.postgresql.Driver
       url: ${DB_1_URL}
       user: ${DB_1_USERNAME}
@@ -13,6 +14,7 @@ application:
         name: first_name
         surname: last_name
     - name: data-base-2
+      strategy: mysql
       driver-class-name: com.mysql.jdbc.Driver
       url: ${DB_2_URL}
       user: ${DB_2_USERNAME}

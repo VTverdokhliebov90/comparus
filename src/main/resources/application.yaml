@@ -8,4 +8,4 @@ application:
   openapi:
     dev-url: http://localhost:8080
     prod-url: n/a
-#    data sources config see IT tests config
+#    data sources config. See IT tests config example

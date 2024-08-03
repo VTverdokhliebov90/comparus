@@ -38,7 +38,7 @@ class UsersRepository implements IUsersRepository {
         // build conditions
         var conditions = new ArrayList<>();
         usersListRequest.getSearch()
-                .map(search -> "%1$s ilike '%%%3$s%%' or %2$s ilike '%%%3$s%%'".formatted(
+                .map(search -> getSearchStrategy(dataSourceProps.getStrategy()).formatted(
                         dataSourceProps.getMapping().get(NAME_FIELD_NAME),
                         dataSourceProps.getMapping().get(SURNAME_FIELD_NAME),
                         search))
@@ -57,6 +57,14 @@ class UsersRepository implements IUsersRepository {
                         .name(resultSet.getString(NAME_FIELD_NAME))
                         .surname(resultSet.getString(SURNAME_FIELD_NAME))
                         .build());
+    }
+
+    private static String getSearchStrategy(ApplicationProps.Strategy strategy) {
+        return switch (strategy) {
+            case POSTGRES -> "%1$s ILIKE '%%%3$s%%' OR %2$s ILIKE '%%%3$s%%'";
+            case MYSQL -> "LOWER(%1$s) LIKE LOWER('%%%3$s%%') OR LOWER(%2$s) LIKE LOWER('%%%3$s%%')";
+        };
+
     }
 
 }

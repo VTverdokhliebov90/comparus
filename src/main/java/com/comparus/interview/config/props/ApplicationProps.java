@@ -18,6 +18,7 @@ public class ApplicationProps {
 
     @Data
     public static class DataSourceProps {
+        private Strategy strategy;
         private String name;
         private String url;
         private String driverClassName;
@@ -25,5 +26,9 @@ public class ApplicationProps {
         private String password;
         private String table;
         private Map<String, String> mapping;
+    }
+
+    public enum Strategy {
+        POSTGRES, MYSQL;
     }
 }
