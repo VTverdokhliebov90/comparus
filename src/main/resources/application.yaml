@@ -1,6 +1,6 @@
 spring:
   application:
-    name: COMPARUS interview
+    name: Interview App
 
 
 application:

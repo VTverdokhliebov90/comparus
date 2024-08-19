@@ -1,4 +1,4 @@
-# COMPARUS Interview project
+# Interview project
 
 Application represents a service for aggregating users data from multiple databases. Application
 provides single rest endpoint for selecting data, selected from all databases
@@ -9,6 +9,14 @@ Application has declarative configuration for specification of data sources, max
 of data sources is infinite:
 
 ### Spring Boot
+    .\gradlew build
+    .\gradlew build -x test
+### Docker Start
+    .\gradlew build -x test && docker build -t interview/app .
+    docker run -p 8080:8080 interview/app
+or
+
+    docker-compose build && docker-compose up
 
 ### OpenApi
 

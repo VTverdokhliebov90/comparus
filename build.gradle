@@ -9,7 +9,7 @@ ext {
 	set('testcontainers.version', "1.20.1")
 }
 
-group = 'com.comparus'
+group = 'com.vlad'
 version = '0.0.1-SNAPSHOT'
 
 java {
